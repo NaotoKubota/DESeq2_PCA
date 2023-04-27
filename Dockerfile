@@ -45,13 +45,13 @@ RUN /usr/local/bin/python -m pip install --upgrade pip && \
     pip install pandas==1.5.3 scikit-learn==1.2.2
 
 # Clone github repository
-RUN cd /usr/src/ && \
+RUN	cd / && \
 	git clone https://github.com/NaotoKubota/DESeq2_PCA.git && \
 	cd DESeq2_PCA && \
 	chmod +x deseq2_pca.bash deseq2.R pca.py
 
 # Set environment variables
-ENV PATH /usr/src/DESeq2_PCA:$PATH
+ENV PATH /DESeq2_PCA:$PATH
 
 # Set working directory
 WORKDIR /home
