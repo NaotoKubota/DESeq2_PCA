@@ -49,7 +49,6 @@ merged <- merged[merged$group == REFGROUP | merged$group == EXPGROUP, ]
 group <- data.frame(con = factor(merged$group), PC1 = merged$PC1, PC2 = merged$PC2, PC3 = merged$PC3)
 # Count matrix
 counts <- merged[, -which (colnames(merged) %in% c("bam", "group", "PC1", "PC2", "PC3"))]
-head(counts[, 1:5])
 rownames(counts) <- counts$Row.names
 counts <- counts[, colnames(counts) != "Row.names"]
 counts <- t(counts)
