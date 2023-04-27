@@ -44,6 +44,15 @@ RUN R -e "install.packages('BiocManager', repos = 'http://cran.us.r-project.org'
 RUN /usr/local/bin/python -m pip install --upgrade pip && \
     pip install pandas==1.5.3 scikit-learn==1.2.2
 
+# Clone github repository
+RUN cd /usr/src/ && \
+	git clone https://github.com/NaotoKubota/DESeq2_PCA.git && \
+	cd DESeq2_PCA && \
+	chmod +x deseq2_pca.bash deseq2.R pca.py
+
+# Set environment variables
+ENV PATH /usr/src/DESeq2_PCA:$PATH
+
 # Set working directory
 WORKDIR /home
 
