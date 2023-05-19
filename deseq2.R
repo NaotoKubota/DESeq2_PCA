@@ -59,7 +59,7 @@ counts <- as.matrix(counts)
 counts <- counts[apply(counts, 1, sum)>6,]
 
 # DEseq
-dds <- DESeqDataSetFromMatrix(countData = counts, colData = group, design = ~ con + PC1 + PC2 + PC3)
+dds <- DESeqDataSetFromMatrix(countData = counts, colData = group, design = ~ PC1 + PC2 + PC3 + con)
 dds$con <- relevel(dds$con, ref = REFGROUP)
 dds <- DESeq(dds)
 res <- results(dds)
